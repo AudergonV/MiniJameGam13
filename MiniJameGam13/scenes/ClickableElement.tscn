@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="CSharpScript" id=2]
+script/source = "using Godot;
+using System;
+
+public class ClickableElement : Node2D
+{
+    [Export]
+    public Behaviour behaviour;
+
+    // Called when the node enters the scene tree for the first time.
+    public override void _Ready()
+    {
+        
+    }
+    
+    public void _on_Area2D_input_event(Node node, InputEvent @event, int i) {
+        if (@event.IsActionPressed(\"click\")) {
+            if (behaviour != null) behaviour.DoAction();
+        }
+    }
+
+}
+"
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 31.3437, 31.5451 )
+
+[node name="ClickableElement" type="Node2D"]
+script = SubResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 1 )
+
+[connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]

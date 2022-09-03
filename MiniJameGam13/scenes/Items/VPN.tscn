@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/sprites/vpn.png" type="Texture" id=1]
+[ext_resource path="res://scripts/VPN.cs" type="Script" id=2]
+[ext_resource path="res://scenes/Items/File.tscn" type="PackedScene" id=4]
+
+[node name="VPN" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="File" parent="." instance=ExtResource( 4 )]
+name = "SudVPN"
+texture = ExtResource( 1 )
+
+[connection signal="OnClick" from="File" to="." method="OnClick"]

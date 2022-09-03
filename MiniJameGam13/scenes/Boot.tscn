@@ -1,0 +1,81 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://assets/sprites/phanphan5.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/phanphan2.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/phanphan1.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/phanphan3.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/phanphan9.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/phanphan8.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/phanphan6.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/phanphan4.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/phanphan11.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/phanphan7.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/phanphan10.png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/circle.png" type="Texture" id=12]
+[ext_resource path="res://scripts/Boot.cs" type="Script" id=13]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Boot"
+length = 9.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Phanphan:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 1.1, 1.5, 1.8, 6, 6.6, 6.9 ),
+"transitions": PoolRealArray( 0.31864, 0.31864, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 0.25, 0.25 ), Vector2( 0.2, 0.2 ), Vector2( 0.2, 0.2 ), Vector2( 0.25, 0.25 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Circle:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.9, 1.2, 1.6, 6.2, 6.8, 7 ),
+"transitions": PoolRealArray( 1, 0.5, 0.5, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2e-06, 2e-06 ), Vector2( 0.23, 0.23 ), Vector2( 0.2, 0.2 ), Vector2( 0.2, 0.2 ), Vector2( 0.23, 0.23 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Gradient" id=2]
+colors = PoolColorArray( 0.0695801, 0.0851727, 0.46875, 1, 0.190082, 0.133087, 0.347656, 1 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 1 ), ExtResource( 7 ), ExtResource( 10 ), ExtResource( 5 ), ExtResource( 11 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 13 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Boot"
+anims/Boot = SubResource( 1 )
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 965.968, 540.151 )
+scale = Vector2( 0.945696, 1081.3 )
+texture = SubResource( 3 )
+
+[node name="Circle" type="Sprite" parent="."]
+position = Vector2( 944.186, 441.438 )
+scale = Vector2( 1e-05, 1e-05 )
+texture = ExtResource( 12 )
+
+[node name="Phanphan" type="AnimatedSprite" parent="."]
+position = Vector2( 945.118, 440.66 )
+scale = Vector2( 1e-05, 1e-05 )
+frames = SubResource( 4 )
+frame = 17
+playing = true
