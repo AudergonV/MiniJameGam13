@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/elephant-trumpets-growls-6047.mp3-c08855a82b705b9bbad838bbc60817b1.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/elephant-trumpets-growls-6047.mp3"
+dest_files=[ "res://.import/elephant-trumpets-growls-6047.mp3-c08855a82b705b9bbad838bbc60817b1.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

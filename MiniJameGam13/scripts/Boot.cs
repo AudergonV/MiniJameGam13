@@ -20,4 +20,7 @@ public class Boot : Node2D
 //  {
 //      
 //  }
+    public void GoToNextScene() {
+        GetTree().ChangeScene("./Test.tscn");
+    }
 }
